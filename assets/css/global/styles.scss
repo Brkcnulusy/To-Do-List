@@ -1,0 +1,643 @@
+@import '../reset/reset';
+
+:root {
+    --Title-Color: hsl(0, 0%, 98%);
+    --Bright-Blue: hsl(220, 98%, 61%);
+    --Check-Background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+html[data-theme="light"] {
+    --Background-Color: hsl(0, 0%, 98%);
+    --List-Background-Color: hsl(236, 33%, 92%);
+    --Light-Grayish-Blue: hsl(233, 11%, 84%);
+    --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+    --Text-Color: hsl(235, 19%, 35%);
+}
+
+html[data-theme="dark"] {
+    --Background-Color: hsl(235, 21%, 11%);
+    --List-Background-Color: hsl(235, 24%, 19%);
+    --Light-Grayish-Blue: hsl(234, 39%, 85%);
+    --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+    --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+    --Text-Color: hsl(234, 39%, 85%);
+    --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .red-zone {
+        z-index: 2;
+        width: 20px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: var(--List-Background-Color);
+        cursor: pointer;
+        transition: 0.4s ease-in-out;
+
+        &:hover {
+            width: 380px;
+            >.red-zone-container>.content-wrapper {
+                display: flex;
+            }
+        }
+
+        .red-zone-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .img-wrapper {
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                right: -20px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: var(--List-Background-Color);
+                border-radius: 50%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    inset: 0;
+                }
+            }
+
+            .content-wrapper {
+                width: 100%;
+                height: 100%;
+                display: none;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: flex-start;
+                gap: 30px;
+                overflow: hidden;
+
+                &.active {
+                    display: flex;
+                }
+
+                .title {
+                    width: 100%;
+                    height: fit-content;
+                    padding: 30px 20px;
+
+                    h2 {
+                        width: 100%;
+                        font-size: 20px;
+                        text-align: center;
+                        color: red;
+                    }
+                }
+
+               
+    
+                .failed-todo {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    padding: 0 20px;
+
+                    span {
+                        font-size: 18px;
+                        font-weight: bold;
+                        color: var(--Text-Color);
+                    }
+
+                    ul {
+                        width: 100%;
+                        height: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+        
+                        li {
+                            width: 100%;
+                            height: 40px;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            border-bottom: 1px solid var(--Dark-Grayish-Blue);
+                            padding-right: 10px;
+                            cursor: pointer;
+                            position: relative;
+        
+                            .check-button {
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 50px;
+                                height: 100%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+        
+                                span {
+                                    width: 20px;
+                                    height: 20px;
+                                    border: 1px solid var(--Light-Grayish-Blue);
+                                    background-color: red;
+                                    border-radius: 50%;
+                                    cursor: pointer;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    img {
+                                        width: 8px;
+                                        height: 8px;
+                                    }
+        
+                                    &:hover {
+                                        border-color: var(--Bright-Blue);
+                                    }
+                                }
+                            }
+        
+                            .todo-wrapper {
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                padding-left: 50px;
+        
+                                p {
+                                    font-size: 14px;
+                                    color: var(--Text-Color);
+
+                                    &:first-child {
+                                        text-decoration: line-through;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .green-zone {
+        z-index: 2;
+        width: 20px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        background-color: var(--List-Background-Color);
+        transition: 0.4s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            width: 380px;
+            >.green-zone-container>.content-wrapper {
+                display: flex;
+            }
+        }
+
+        .green-zone-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            .img-wrapper {
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                left: -20px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: var(--List-Background-Color);
+                border-radius: 50%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    inset: 0;
+                }
+            }
+
+            .content-wrapper {
+                width: 100%;
+                height: 100%;
+                display: none;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: flex-start;
+                gap: 30px;
+                overflow: hidden;
+
+                &.active {
+                    display: flex;
+                }
+
+                .title {
+                    width: 100%;
+                    height: fit-content;
+                    padding: 30px 20px;
+
+                    h2 {
+                        width: 100%;
+                        font-size: 20px;
+                        text-align: center;
+                        color: green;
+                    }
+                }
+
+               
+    
+                .completed-todo {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    padding: 0 20px;
+
+                    span {
+                        font-size: 18px;
+                        font-weight: bold;
+                        color: var(--Text-Color);
+                    }
+
+                    ul {
+                        width: 100%;
+                        height: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+        
+                        li {
+                            width: 100%;
+                            height: 40px;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            border-bottom: 1px solid var(--Dark-Grayish-Blue);
+                            padding-right: 10px;
+                            cursor: pointer;
+                            position: relative;
+        
+                            .check-button {
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 50px;
+                                height: 100%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+        
+                                span {
+                                    width: 20px;
+                                    height: 20px;
+                                    border: 1px solid var(--Light-Grayish-Blue);
+                                    background-color: green;
+                                    border-radius: 50%;
+                                    cursor: pointer;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+        
+                                    &:hover {
+                                        border-color: var(--Bright-Blue);
+                                    }
+                                }
+                            }
+        
+                            .todo-wrapper {
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                padding-left: 50px;
+        
+                                p {
+                                    font-size: 14px;
+                                    color: var(--Text-Color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    header {
+        width: 100%;
+        height: 280px;
+        background-image: url(../../images/bg-desktop-light.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 50px 0;
+        gap: 20px;
+
+        .logo-and-theme-wrapper {
+            width: 375px;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .logo-wrapper {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                h1 {
+                    font-size: 28px;
+                    font-weight: bolder;
+                    color: var(--Title-Color);
+                    letter-spacing: 10px;
+                    text-align: center;
+                }
+            }
+
+            .theme-button-wrapper {
+                width: fit-content;
+                height: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                padding: 0;
+
+                button {
+                    width: 24px;
+                    height: 24px;
+                    outline: none;
+                    overflow: hidden;
+                    background-color: transparent;
+                    border: none;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        inset: 0;
+                    }
+                }
+            }
+        }
+
+        .add-todo-form {
+            width: 375px;
+            height: 100px;
+
+            form {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .img-wrapper {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 50px;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    span {
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        border: 1px solid var(--Light-Grayish-Blue);
+                    }
+                }
+
+                input {
+                    width: 100%;
+                    height: 40px;
+                    border: none;
+                    outline: none;
+                    padding-left: 50px;
+                    font-size: 16px;
+                    background-color: var(--List-Background-Color);
+                    border-radius: 5px;
+                    color: var(--Text-Color);
+                }
+            }
+        }
+    }
+
+    main {
+        width: 100%;
+        height: 100%;
+        background-color: var(--Background-Color);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+
+        .todo-list-wrapper {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--List-Background-Color);
+            border-radius: 5px;
+            width: 375px;
+            height: fit-content;
+
+            ul {
+                width: 100%;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+
+                li {
+                    width: 100%;
+                    height: 40px;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    border-bottom: 1px solid var(--Dark-Grayish-Blue);
+                    padding-right: 10px;
+                    cursor: pointer;
+                    position: relative;
+
+                    &:hover>.todo-wrapper>img {
+                        display: block;
+                    }
+
+                    .check-button {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 50px;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        span {
+                            width: 20px;
+                            height: 20px;
+                            border: 1px solid var(--Light-Grayish-Blue);
+                            border-radius: 50%;
+                            cursor: pointer;
+
+                            &:hover {
+                                border-color: var(--Bright-Blue);
+                            }
+                        }
+                    }
+
+                    .todo-wrapper {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding-left: 50px;
+
+                        p {
+                            font-size: 14px;
+                            color: var(--Text-Color);
+                        }
+
+                        img {
+                            width: 15px;
+                            height: 15px;
+                            inset: 0;
+                            display: none;
+                        }
+                    }
+                }
+
+                .todo-actions {
+                    width: 100%;
+                    height: 30px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 10px;
+                    gap: 30px;
+
+                    .items-quantity {
+                        width: fit-content;
+                        height: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        p {
+                            font-size: 12px;
+                            color: var(--Dark-Grayish-Blue);
+                            cursor: pointer;
+
+                            &:hover {
+                                color: var(--Text-Color);
+                            }
+                        }
+                    }
+
+                    .actions {
+                        flex: 1 1;
+                        height: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .filter {
+                            display: flex;
+                            gap: 10px;
+
+                            span {
+                                font-size: 13px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                color: var(--Dark-Grayish-Blue);
+
+                                &:first-child {
+                                    color: var(--Bright-Blue);
+
+                                    &:hover {
+                                        color: var(--Bright-Blue);
+                                    }
+                                }
+
+                                &:hover {
+                                    color: var(--Text-Color);
+                                }
+                            }
+                        }
+
+                        .clear {
+                            p {
+                                cursor: pointer;
+                                font-size: 13px;
+                                color: var(--Dark-Grayish-Blue);
+
+                                &:hover {
+                                    color: var(--Text-Color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-text {
+            width: 375px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            p {
+                font-size: 12px;
+                color: var(--Dark-Grayish-Blue);
+            }
+        }
+    }
+}

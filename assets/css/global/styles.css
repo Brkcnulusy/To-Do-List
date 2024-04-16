@@ -1,1 +1,630 @@
-/*# sourceMappingURL=styles.css.map */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, main {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Title-Color: hsl(0, 0%, 98%);
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Check-Background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+html[data-theme=light] {
+  --Background-Color: hsl(0, 0%, 98%);
+  --List-Background-Color: hsl(236, 33%, 92%);
+  --Light-Grayish-Blue: hsl(233, 11%, 84%);
+  --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+  --Text-Color: hsl(235, 19%, 35%);
+}
+
+html[data-theme=dark] {
+  --Background-Color: hsl(235, 21%, 11%);
+  --List-Background-Color: hsl(235, 24%, 19%);
+  --Light-Grayish-Blue: hsl(234, 39%, 85%);
+  --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+  --Text-Color: hsl(234, 39%, 85%);
+  --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.container .red-zone {
+  z-index: 2;
+  width: 20px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: var(--List-Background-Color);
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.container .red-zone:hover {
+  width: 380px;
+}
+.container .red-zone:hover > .red-zone-container > .content-wrapper {
+  display: flex;
+}
+.container .red-zone .red-zone-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.container .red-zone .red-zone-container .img-wrapper {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--List-Background-Color);
+  border-radius: 50%;
+}
+.container .red-zone .red-zone-container .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+.container .red-zone .red-zone-container .content-wrapper {
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 30px;
+  overflow: hidden;
+}
+.container .red-zone .red-zone-container .content-wrapper.active {
+  display: flex;
+}
+.container .red-zone .red-zone-container .content-wrapper .title {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 30px 20px;
+}
+.container .red-zone .red-zone-container .content-wrapper .title h2 {
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  color: red;
+}
+.container .red-zone .red-zone-container .content-wrapper .failed-todo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 20px;
+}
+.container .red-zone .red-zone-container .content-wrapper .failed-todo span {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--Text-Color);
+}
+.container .red-zone .red-zone-container .content-wrapper .failed-todo ul {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container .red-zone .red-zone-container .content-wrapper .failed-todo ul li {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid var(--Dark-Grayish-Blue);
+  padding-right: 10px;
+  cursor: pointer;
+  position: relative;
+}
+.container .red-zone .red-zone-container .content-wrapper .failed-todo ul li .check-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .red-zone .red-zone-container .content-wrapper .failed-todo ul li .check-button span {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--Light-Grayish-Blue);
+  background-color: red;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .red-zone .red-zone-container .content-wrapper .failed-todo ul li .check-button span img {
+  width: 8px;
+  height: 8px;
+}
+.container .red-zone .red-zone-container .content-wrapper .failed-todo ul li .check-button span:hover {
+  border-color: var(--Bright-Blue);
+}
+.container .red-zone .red-zone-container .content-wrapper .failed-todo ul li .todo-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+}
+.container .red-zone .red-zone-container .content-wrapper .failed-todo ul li .todo-wrapper p {
+  font-size: 14px;
+  color: var(--Text-Color);
+}
+.container .red-zone .red-zone-container .content-wrapper .failed-todo ul li .todo-wrapper p:first-child {
+  text-decoration: line-through;
+}
+.container .green-zone {
+  z-index: 2;
+  width: 20px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: var(--List-Background-Color);
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+}
+.container .green-zone:hover {
+  width: 380px;
+}
+.container .green-zone:hover > .green-zone-container > .content-wrapper {
+  display: flex;
+}
+.container .green-zone .green-zone-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.container .green-zone .green-zone-container .img-wrapper {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--List-Background-Color);
+  border-radius: 50%;
+}
+.container .green-zone .green-zone-container .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+.container .green-zone .green-zone-container .content-wrapper {
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 30px;
+  overflow: hidden;
+}
+.container .green-zone .green-zone-container .content-wrapper.active {
+  display: flex;
+}
+.container .green-zone .green-zone-container .content-wrapper .title {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 30px 20px;
+}
+.container .green-zone .green-zone-container .content-wrapper .title h2 {
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  color: green;
+}
+.container .green-zone .green-zone-container .content-wrapper .completed-todo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 20px;
+}
+.container .green-zone .green-zone-container .content-wrapper .completed-todo span {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--Text-Color);
+}
+.container .green-zone .green-zone-container .content-wrapper .completed-todo ul {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container .green-zone .green-zone-container .content-wrapper .completed-todo ul li {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid var(--Dark-Grayish-Blue);
+  padding-right: 10px;
+  cursor: pointer;
+  position: relative;
+}
+.container .green-zone .green-zone-container .content-wrapper .completed-todo ul li .check-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .green-zone .green-zone-container .content-wrapper .completed-todo ul li .check-button span {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--Light-Grayish-Blue);
+  background-color: green;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .green-zone .green-zone-container .content-wrapper .completed-todo ul li .check-button span:hover {
+  border-color: var(--Bright-Blue);
+}
+.container .green-zone .green-zone-container .content-wrapper .completed-todo ul li .todo-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+}
+.container .green-zone .green-zone-container .content-wrapper .completed-todo ul li .todo-wrapper p {
+  font-size: 14px;
+  color: var(--Text-Color);
+}
+.container header {
+  width: 100%;
+  height: 280px;
+  background-image: url(../../images/bg-desktop-light.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 50px 0;
+  gap: 20px;
+}
+.container header .logo-and-theme-wrapper {
+  width: 375px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container header .logo-and-theme-wrapper .logo-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container header .logo-and-theme-wrapper .logo-wrapper h1 {
+  font-size: 28px;
+  font-weight: bolder;
+  color: var(--Title-Color);
+  letter-spacing: 10px;
+  text-align: center;
+}
+.container header .logo-and-theme-wrapper .theme-button-wrapper {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+}
+.container header .logo-and-theme-wrapper .theme-button-wrapper button {
+  width: 24px;
+  height: 24px;
+  outline: none;
+  overflow: hidden;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.container header .logo-and-theme-wrapper .theme-button-wrapper button img {
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+.container header .add-todo-form {
+  width: 375px;
+  height: 100px;
+}
+.container header .add-todo-form form {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container header .add-todo-form form .img-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container header .add-todo-form form .img-wrapper span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--Light-Grayish-Blue);
+}
+.container header .add-todo-form form input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  padding-left: 50px;
+  font-size: 16px;
+  background-color: var(--List-Background-Color);
+  border-radius: 5px;
+  color: var(--Text-Color);
+}
+.container main {
+  width: 100%;
+  height: 100%;
+  background-color: var(--Background-Color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+.container main .todo-list-wrapper {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--List-Background-Color);
+  border-radius: 5px;
+  width: 375px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.container main .todo-list-wrapper ul {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container main .todo-list-wrapper ul li {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid var(--Dark-Grayish-Blue);
+  padding-right: 10px;
+  cursor: pointer;
+  position: relative;
+}
+.container main .todo-list-wrapper ul li:hover > .todo-wrapper > img {
+  display: block;
+}
+.container main .todo-list-wrapper ul li .check-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container main .todo-list-wrapper ul li .check-button span {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--Light-Grayish-Blue);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.container main .todo-list-wrapper ul li .check-button span:hover {
+  border-color: var(--Bright-Blue);
+}
+.container main .todo-list-wrapper ul li .todo-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+}
+.container main .todo-list-wrapper ul li .todo-wrapper p {
+  font-size: 14px;
+  color: var(--Text-Color);
+}
+.container main .todo-list-wrapper ul li .todo-wrapper img {
+  width: 15px;
+  height: 15px;
+  inset: 0;
+  display: none;
+}
+.container main .todo-list-wrapper ul .todo-actions {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  gap: 30px;
+}
+.container main .todo-list-wrapper ul .todo-actions .items-quantity {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container main .todo-list-wrapper ul .todo-actions .items-quantity p {
+  font-size: 12px;
+  color: var(--Dark-Grayish-Blue);
+  cursor: pointer;
+}
+.container main .todo-list-wrapper ul .todo-actions .items-quantity p:hover {
+  color: var(--Text-Color);
+}
+.container main .todo-list-wrapper ul .todo-actions .actions {
+  flex: 1 1;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container main .todo-list-wrapper ul .todo-actions .actions .filter {
+  display: flex;
+  gap: 10px;
+}
+.container main .todo-list-wrapper ul .todo-actions .actions .filter span {
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--Dark-Grayish-Blue);
+}
+.container main .todo-list-wrapper ul .todo-actions .actions .filter span:first-child {
+  color: var(--Bright-Blue);
+}
+.container main .todo-list-wrapper ul .todo-actions .actions .filter span:first-child:hover {
+  color: var(--Bright-Blue);
+}
+.container main .todo-list-wrapper ul .todo-actions .actions .filter span:hover {
+  color: var(--Text-Color);
+}
+.container main .todo-list-wrapper ul .todo-actions .actions .clear p {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--Dark-Grayish-Blue);
+}
+.container main .todo-list-wrapper ul .todo-actions .actions .clear p:hover {
+  color: var(--Text-Color);
+}
+.container main .main-text {
+  width: 375px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container main .main-text p {
+  font-size: 12px;
+  color: var(--Dark-Grayish-Blue);
+}/*# sourceMappingURL=styles.css.map */

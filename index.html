@@ -1,49 +1,176 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <title>Frontend Mentor | Todo app</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/global/styles.css">
-</head>
-<body>
-
-  <div class="container">
-    <header>
-      <div class="logo-and-theme-wrapper">
-        <div class="logo-wrapper">
-          <h1>TODO</h1>
-        </div>
-        <div class="theme-button-wrapper">
-          <button class="js-theme-button">
-            <img src="./assets/images/icon-moon.svg" alt="Moon">
-          </button>
-        </div>
-      </div>
-      <div class="add-todo-form">
-        <form class="js-add-todo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <title>Frontend Mentor | Todo app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/global/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="red-zone">
+        <div class="red-zone-container">
           <div class="img-wrapper">
-            <span></span>
+            <img src="./assets/images/arrow-next.svg" alt="arrow" />
           </div>
-          <input class="add-todo-input" type="text" placeholder="Create a new todo...">
-        </form>
+          <div class="content-wrapper">
+            <div class="title">
+              <h2>RED ZONE</h2>
+            </div>
+            <div class="failed-todo">
+              <span>Failed To-Do List</span>
+              <ul>
+                <li>
+                  <div class="check-button">
+                    <span
+                      ><img src="./assets/images/icon-cross.svg" alt="cross"
+                    /></span>
+                  </div>
+                  <div class="todo-wrapper">
+                    <p>Yapılacak iş.</p>
+                    <p>Time Out</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
-    <main>
-      <div class="todo-list-wrapper">
-        All
-        Active 
-        Completed
-      
-        Clear Completed
+      <div class="green-zone">
+        <div class="green-zone-container">
+          <div class="img-wrapper">
+            <img src="./assets/images/arrow-prev.svg" alt="arrow" />
+          </div>
+          <div class="content-wrapper">
+            <div class="title">
+              <h2>GREEN ZONE</h2>
+            </div>
+            <div class="completed-todo">
+              <span>Completed To-Do List</span>
+              <ul>
+                <li>
+                  <div class="check-button">
+                    <span
+                      ><img src="./assets/images/icon-check.svg" alt="check"
+                    /></span>
+                  </div>
+                  <div class="todo-wrapper">
+                    <p>Yapılacak iş.</p>
+                    <p>Completed</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="main-text">
-        <p>Drag and drop to reorder list</p>
-      </div>
-    </main>
-  </div>  
-</body>
+      <header>
+        <div class="logo-and-theme-wrapper">
+          <div class="logo-wrapper">
+            <h1>TODO</h1>
+          </div>
+          <div class="theme-button-wrapper">
+            <button class="js-theme-button">
+              <img src="./assets/images/icon-moon.svg" alt="Moon" />
+            </button>
+          </div>
+        </div>
+        <div class="add-todo-form">
+          <form class="js-add-todo">
+            <div class="img-wrapper">
+              <span></span>
+            </div>
+            <input
+              class="js-add-todo-input"
+              type="text"
+              placeholder="Create a new todo..."
+            />
+
+            <input type="date" class="js-add-date-input">
+          </form>
+        </div>
+      </header>
+      <main>
+        <div class="todo-list-wrapper">
+          <ul>
+            <li>
+              <div class="check-button">
+                <span></span>
+              </div>
+              <div class="todo-wrapper">
+                <p>Yapılacak iş.</p>
+                <p>5 days left.</p>
+                <img src="./assets/images/icon-cross.svg" alt="Delete" />
+              </div>
+            </li>
+            <li>
+              <div class="check-button">
+                <span></span>
+              </div>
+              <div class="todo-wrapper">
+                <p>Yapılacak iş.</p>
+                <p>5 days left.</p>
+                <img src="./assets/images/icon-cross.svg" alt="Delete" />
+              </div>
+            </li>
+            <li>
+              <div class="check-button">
+                <span></span>
+              </div>
+              <div class="todo-wrapper">
+                <p>Yapılacak iş.</p>
+                <p>5 days left.</p>
+                <img src="./assets/images/icon-cross.svg" alt="Delete" />
+              </div>
+            </li>
+            <li>
+              <div class="check-button">
+                <span></span>
+              </div>
+              <div class="todo-wrapper">
+                <p>Yapılacak iş.</p>
+                <p>5 days left.</p>
+                <img src="./assets/images/icon-cross.svg" alt="Delete" />
+              </div>
+            </li>
+            <li>
+              <div class="check-button">
+                <span></span>
+              </div>
+              <div class="todo-wrapper">
+                <p>Yapılacak iş.</p>
+                <p>5 days left.</p>
+                <img src="./assets/images/icon-cross.svg" alt="Delete" />
+              </div>
+            </li>
+            <div class="todo-actions">
+              <div class="items-quantity">
+                <p>5 items left.</p>
+              </div>
+              <div class="actions">
+                <div class="filter">
+                  <span>All</span>
+                  <span>Active</span>
+                  <span>Completed</span>
+                </div>
+                <div class="clear">
+                  <p>Clear Completed</p>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+        <div class="main-text">
+          <p>Drag and drop to reorder list</p>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
