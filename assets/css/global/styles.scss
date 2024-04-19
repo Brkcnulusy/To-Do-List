@@ -37,6 +37,7 @@ html {
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
 
     .red-zone {
         z-index: 2;
@@ -51,8 +52,24 @@ html {
         cursor: pointer;
         transition: 0.4s ease-in-out;
 
+        &.active {
+            width: 385px;
+
+            @media (max-width: 500px) {
+                width: calc(100% - 60px);
+            }
+
+            >.red-zone-container>.content-wrapper {
+                display: flex;
+            }
+        }
+
         &:hover {
-            width: 380px;
+            width: 385px;
+
+            @media (max-width: 500px) {
+                width: calc(100% - 60px);
+            }
             >.red-zone-container>.content-wrapper {
                 display: flex;
             }
@@ -216,8 +233,25 @@ html {
         transition: 0.4s ease-in-out;
         cursor: pointer;
 
+        &.active {
+            width: 380px;
+
+            @media (max-width: 500px) {
+                width: calc(100% - 60px);
+            }
+
+            >.green-zone-container>.content-wrapper {
+                display: flex;
+            }
+        }
+
         &:hover {
             width: 380px;
+
+            @media (max-width: 500px) {
+                width: calc(100% - 60px);
+            }
+
             >.green-zone-container>.content-wrapper {
                 display: flex;
             }
@@ -359,7 +393,7 @@ html {
 
     header {
         width: 100%;
-        height: 280px;
+        height: 360px;
         background-image: url(../../images/bg-desktop-light.jpg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -370,12 +404,28 @@ html {
         padding: 50px 0;
         gap: 20px;
 
+        @media (max-width: 500px) {
+            background-image: url(../../images/bg-mobile-light.jpg);
+            padding: 50px 30px;
+        }
+
+        &.active {
+            background-image: url(../../images/bg-desktop-dark.jpg);
+            @media (max-width: 500px) {
+                background-image: url(../../images/bg-mobile-dark.jpg);
+            }
+        }
+
         .logo-and-theme-wrapper {
             width: 375px;
             height: 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            @media (max-width: 500px) {
+                width: 100%;
+            }
 
             .logo-wrapper {
                 display: flex;
@@ -409,6 +459,7 @@ html {
                     display: flex;
                     justify-content: flex-end;
                     align-items: center;
+                    cursor: pointer;
 
                     img {
                         width: 100%;
@@ -421,7 +472,11 @@ html {
 
         .add-todo-form {
             width: 375px;
-            height: 100px;
+            height: 160px;
+
+            @media (max-width: 500px) {
+                width: 100%;
+            }
 
             form {
                 width: 100%;
@@ -461,6 +516,23 @@ html {
                     border-radius: 5px;
                     color: var(--Text-Color);
                 }
+
+                button {
+                    width: 100%;
+                    height: 40px;
+                    border: none;
+                    outline: none;
+                    font-size: 16px;
+                    background-color: var(--List-Background-Color);
+                    border-radius: 5px;
+                    color: var(--Text-Color);
+                    cursor: pointer;
+
+                    &:active {
+                        position: relative;
+                        top: 1px;
+                    }
+                }
             }
         }
     }
@@ -475,6 +547,10 @@ html {
         align-items: center;
         position: relative;
 
+        @media (max-width: 500px) {
+            padding: 0 30px;
+        }
+
         .todo-list-wrapper {
             position: absolute;
             top: -30px;
@@ -484,6 +560,10 @@ html {
             border-radius: 5px;
             width: 375px;
             height: fit-content;
+
+            @media (max-width: 500px) {
+                width: calc(100% - 60px);
+            }
 
             ul {
                 width: 100%;
@@ -503,6 +583,17 @@ html {
                     padding-right: 10px;
                     cursor: pointer;
                     position: relative;
+                    user-select: none;
+                    overflow: hidden;
+
+                    &.disabled {
+                        opacity: 0.8;
+                        user-select: none;
+                        cursor: no-drop;
+                        &:hover>.todo-wrapper>img {
+                            display: none;
+                        }
+                    }
 
                     &:hover>.todo-wrapper>img {
                         display: block;
@@ -524,10 +615,26 @@ html {
                             border: 1px solid var(--Light-Grayish-Blue);
                             border-radius: 50%;
                             cursor: pointer;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            img {
+                                display: none;
+                            }
+                            
+                            &.active {
+                                background-color: var(--Bright-Blue);
+                                >img {
+                                    display: block;
+                                }
+                            }
 
                             &:hover {
                                 border-color: var(--Bright-Blue);
                             }
+
+                            
                         }
                     }
 
@@ -552,27 +659,68 @@ html {
                         }
                     }
                 }
+            }
 
-                .todo-actions {
-                    width: 100%;
-                    height: 30px;
+            .todo-actions {
+                width: 100%;
+                height: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 10px;
+                gap: 30px;
+
+                @media (max-width: 420px) {
+                    gap: 10px;
+                }
+
+
+                .items-quantity {
+                    width: fit-content;
+                    height: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    p {
+                        font-size: 12px;
+                        color: var(--Dark-Grayish-Blue);
+                        cursor: pointer;
+
+                        &:hover {
+                            color: var(--Text-Color);
+                        }
+                    }
+                }
+
+                .actions {
+                    flex: 1 1;
+                    height: 100%;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    padding: 0 10px;
-                    gap: 30px;
 
-                    .items-quantity {
-                        width: fit-content;
-                        height: 100%;
+                    .filter {
                         display: flex;
-                        justify-content: flex-start;
-                        align-items: center;
+                        gap: 10px;
 
-                        p {
-                            font-size: 12px;
-                            color: var(--Dark-Grayish-Blue);
+                        @media (max-width: 420px) {
+                            gap: 5px;
+                        }
+
+                        span {
+                            font-size: 13px;
+                            font-weight: bold;
                             cursor: pointer;
+                            color: var(--Dark-Grayish-Blue);
+
+                            &:first-child {
+                                color: var(--Bright-Blue);
+
+                                &:hover {
+                                    color: var(--Bright-Blue);
+                                }
+                            }
 
                             &:hover {
                                 color: var(--Text-Color);
@@ -580,46 +728,15 @@ html {
                         }
                     }
 
-                    .actions {
-                        flex: 1 1;
-                        height: 100%;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
+                    .clear {
+                        p {
+                            cursor: pointer;
+                            font-size: 13px;
+                            color: var(--Dark-Grayish-Blue);
+                            text-align: end;
 
-                        .filter {
-                            display: flex;
-                            gap: 10px;
-
-                            span {
-                                font-size: 13px;
-                                font-weight: bold;
-                                cursor: pointer;
-                                color: var(--Dark-Grayish-Blue);
-
-                                &:first-child {
-                                    color: var(--Bright-Blue);
-
-                                    &:hover {
-                                        color: var(--Bright-Blue);
-                                    }
-                                }
-
-                                &:hover {
-                                    color: var(--Text-Color);
-                                }
-                            }
-                        }
-
-                        .clear {
-                            p {
-                                cursor: pointer;
-                                font-size: 13px;
-                                color: var(--Dark-Grayish-Blue);
-
-                                &:hover {
-                                    color: var(--Text-Color);
-                                }
+                            &:hover {
+                                color: var(--Text-Color);
                             }
                         }
                     }

@@ -15,10 +15,10 @@
   </head>
   <body>
     <div class="container">
-      <div class="red-zone">
+      <div class="red-zone js-red-zone">
         <div class="red-zone-container">
           <div class="img-wrapper">
-            <img src="./assets/images/arrow-next.svg" alt="arrow" />
+            <img class="js-next-button" src="./assets/images/arrow-next.svg" alt="arrow" />
           </div>
           <div class="content-wrapper">
             <div class="title">
@@ -26,27 +26,16 @@
             </div>
             <div class="failed-todo">
               <span>Failed To-Do List</span>
-              <ul>
-                <li>
-                  <div class="check-button">
-                    <span
-                      ><img src="./assets/images/icon-cross.svg" alt="cross"
-                    /></span>
-                  </div>
-                  <div class="todo-wrapper">
-                    <p>Yapılacak iş.</p>
-                    <p>Time Out</p>
-                  </div>
-                </li>
+              <ul class="js-failed-todo-list">
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <div class="green-zone">
+      <div class="green-zone js-green-zone">
         <div class="green-zone-container">
           <div class="img-wrapper">
-            <img src="./assets/images/arrow-prev.svg" alt="arrow" />
+            <img class="js-prev-button" src="./assets/images/arrow-prev.svg" alt="arrow" />
           </div>
           <div class="content-wrapper">
             <div class="title">
@@ -54,18 +43,7 @@
             </div>
             <div class="completed-todo">
               <span>Completed To-Do List</span>
-              <ul>
-                <li>
-                  <div class="check-button">
-                    <span
-                      ><img src="./assets/images/icon-check.svg" alt="check"
-                    /></span>
-                  </div>
-                  <div class="todo-wrapper">
-                    <p>Yapılacak iş.</p>
-                    <p>Completed</p>
-                  </div>
-                </li>
+              <ul class="js-completed-todo-list">
               </ul>
             </div>
           </div>
@@ -90,87 +68,41 @@
             <input
               class="js-add-todo-input"
               type="text"
-              placeholder="Create a new todo..."
-            />
+              placeholder="Create a new todo..."/>
 
             <input type="date" class="js-add-date-input">
+
+            <button type="submit">Add To-Do</button>
           </form>
         </div>
       </header>
       <main>
         <div class="todo-list-wrapper">
-          <ul>
-            <li>
-              <div class="check-button">
-                <span></span>
+          <ul class="js-todo-list">
+          </ul>
+          <div class="todo-actions">
+            <div class="items-quantity js-item-quantity">
+              
+            </div>
+            <div class="actions">
+              <div class="filter">
+                <span class="js-all-todos">All</span>
+                <span class="js-active-todos">Active</span>
+                <span class="js-completed-button">Completed</span>
               </div>
-              <div class="todo-wrapper">
-                <p>Yapılacak iş.</p>
-                <p>5 days left.</p>
-                <img src="./assets/images/icon-cross.svg" alt="Delete" />
-              </div>
-            </li>
-            <li>
-              <div class="check-button">
-                <span></span>
-              </div>
-              <div class="todo-wrapper">
-                <p>Yapılacak iş.</p>
-                <p>5 days left.</p>
-                <img src="./assets/images/icon-cross.svg" alt="Delete" />
-              </div>
-            </li>
-            <li>
-              <div class="check-button">
-                <span></span>
-              </div>
-              <div class="todo-wrapper">
-                <p>Yapılacak iş.</p>
-                <p>5 days left.</p>
-                <img src="./assets/images/icon-cross.svg" alt="Delete" />
-              </div>
-            </li>
-            <li>
-              <div class="check-button">
-                <span></span>
-              </div>
-              <div class="todo-wrapper">
-                <p>Yapılacak iş.</p>
-                <p>5 days left.</p>
-                <img src="./assets/images/icon-cross.svg" alt="Delete" />
-              </div>
-            </li>
-            <li>
-              <div class="check-button">
-                <span></span>
-              </div>
-              <div class="todo-wrapper">
-                <p>Yapılacak iş.</p>
-                <p>5 days left.</p>
-                <img src="./assets/images/icon-cross.svg" alt="Delete" />
-              </div>
-            </li>
-            <div class="todo-actions">
-              <div class="items-quantity">
-                <p>5 items left.</p>
-              </div>
-              <div class="actions">
-                <div class="filter">
-                  <span>All</span>
-                  <span>Active</span>
-                  <span>Completed</span>
-                </div>
-                <div class="clear">
-                  <p>Clear Completed</p>
-                </div>
+              <div class="clear js-clear-button">
+                <p>Clear Completed</p>
               </div>
             </div>
-          </ul>
+          </div>
         </div>
         <div class="main-text">
           <p>Drag and drop to reorder list</p>
         </div>
       </main>
     </div>
+
+
+    <script type="module" src="./js/app.js"></script>
   </body>
 </html>
