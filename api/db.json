@@ -1,99 +1,11 @@
 {
   "todo": [
-    {
-      "id": 3,
-      "name": "e",
-      "status": "disabled",
-      "class": "active",
-      "timeleft": "Completed"
-    },
-    {
-      "id": 6,
-      "name": "ı",
-      "status": "disabled",
-      "class": "active",
-      "timeleft": "Completed"
-    },
-    {
-      "id": 7,
-      "name": "asas asdasdsadsadasd",
-      "status": "disabled",
-      "class": "active",
-      "timeleft": "Completed"
-    }
+
   ],
   "failed": [
-    {
-      "id": "5",
-      "name": "u",
-      "status": "",
-      "class": "",
-      "timeleft": "Canceled"
-    },
-    {
-      "id": 1,
-      "name": "q",
-      "status": "",
-      "class": "",
-      "timeleft": "Time Out"
-    },
-    {
-      "id": 4,
-      "name": "r",
-      "status": "",
-      "class": "",
-      "timeleft": "Time Out"
-    },
-    {
-      "id": 2,
-      "name": "w",
-      "status": "",
-      "class": "",
-      "timeleft": "Time Out"
-    },
-    {
-      "id": "7",
-      "name": "dsd",
-      "status": "",
-      "class": "",
-      "timeleft": "Canceled"
-    },
-    {
-      "id": "9",
-      "name": "fdfdf fd",
-      "status": "",
-      "class": "",
-      "timeleft": "Canceled"
-    },
-    {
-      "id": "8",
-      "name": "sad asdasd",
-      "status": "",
-      "class": "",
-      "timeleft": "Canceled"
-    }
+
   ],
   "completed": [
-    {
-      "id": "6",
-      "name": "ı",
-      "status": "disabled",
-      "class": "active",
-      "timeleft": "Completed"
-    },
-    {
-      "id": "3",
-      "name": "e",
-      "status": "disabled",
-      "class": "active",
-      "timeleft": "Completed"
-    },
-    {
-      "id": "7",
-      "name": "asas asdasdsadsadasd",
-      "status": "disabled",
-      "class": "active",
-      "timeleft": "Completed"
-    }
+
   ]
 }
