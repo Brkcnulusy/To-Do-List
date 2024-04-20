@@ -29,6 +29,7 @@ const Todo = (function () {
   const quantityItem = document.querySelector(".js-item-quantity");
   const redZone = document.querySelector('.js-red-zone');
   const greenZone = document.querySelector('.js-green-zone');
+  let draggedItem = null;
 
   // Event Listeners
 
@@ -45,9 +46,31 @@ const Todo = (function () {
       _openCloseRedZone(elementTarget);
       _openCloseGreenZone(elementTarget);
     });
+    todoList.addEventListener('dragstart', _dragStart);
+    todoList.addEventListener('dragover', _dragOver);
+    todoList.addEventListener('drop', _drop);
   };
 
   // FunC
+
+  const _dragStart = function (e) {
+    draggedItem = e.target;
+
+    e.dataTransfer.setData('text/plain', draggedItem.textContent);
+  }
+  const _dragOver = function (e) {
+    e.preventDefault();
+  }
+  const _drop = function (e) {
+    e.preventDefault();
+
+    if(e.target.tagName === 'li') {
+      const droppedItem = e.target;
+      todoList.insertBefore(draggedItem, droppedItem);
+    } else {
+      todoList.appendChild(draggedItem);
+    }
+  }
 
   const _openCloseGreenZone = function (target) {
     if(target.closest('.js-prev-button')) {

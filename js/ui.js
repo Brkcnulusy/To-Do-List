@@ -3,7 +3,7 @@ export const renderTodoList = function (element, datas) {
     datas.forEach(data => {
         const timeLeft = typeof data.timeleft === 'number' ? `${data.timeleft} days left.` : data.timeleft;
         element.innerHTML += `
-            <li class="js-todo ${data.status}" data-id="${data.id}">
+            <li draggable="true" class="js-todo ${data.status}" data-id="${data.id}">
               <div class="check-button">
                 <span class="js-check-button ${data.class}" data-id="${data.id}">
                     <img src="./assets/images/icon-check.svg" alt="check">

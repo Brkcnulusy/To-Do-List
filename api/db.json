@@ -13,6 +13,13 @@
       "status": "disabled",
       "class": "active",
       "timeleft": "Completed"
+    },
+    {
+      "id": 7,
+      "name": "asas asdasdsadsadasd",
+      "status": "disabled",
+      "class": "active",
+      "timeleft": "Completed"
     }
   ],
   "failed": [
@@ -50,6 +57,20 @@
       "status": "",
       "class": "",
       "timeleft": "Canceled"
+    },
+    {
+      "id": "9",
+      "name": "fdfdf fd",
+      "status": "",
+      "class": "",
+      "timeleft": "Canceled"
+    },
+    {
+      "id": "8",
+      "name": "sad asdasd",
+      "status": "",
+      "class": "",
+      "timeleft": "Canceled"
     }
   ],
   "completed": [
@@ -63,6 +84,13 @@
     {
       "id": "3",
       "name": "e",
+      "status": "disabled",
+      "class": "active",
+      "timeleft": "Completed"
+    },
+    {
+      "id": "7",
+      "name": "asas asdasdsadsadasd",
       "status": "disabled",
       "class": "active",
       "timeleft": "Completed"
