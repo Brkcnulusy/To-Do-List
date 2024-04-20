@@ -138,7 +138,6 @@ const Todo = (function () {
       { func: validate.checkEmpty, field: todoInputValue, message: validationMessages.emptyInput },
       { func: validate.checkEmpty, field: dateInputValue, message: validationMessages.emptyInput },
       { func: validate.checkPastDate, params: [enteredDate, todayDate], message: validationMessages.pastDate },
-      { func: validate.checkFormat, field: todoInputValue, message: validationMessages.invalidFormat }
   ];
   
   for (const rule of validationRules) {
