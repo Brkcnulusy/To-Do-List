@@ -1,11 +1,29 @@
 {
   "todo": [
-
+    {
+      "id": 2,
+      "name": "Projeni bitir",
+      "status": "disabled",
+      "class": "active",
+      "timeleft": "Completed"
+    }
   ],
   "failed": [
-
+    {
+      "id": 1,
+      "name": "Ödevlerini Yap",
+      "status": "",
+      "class": "",
+      "timeleft": "Time Out"
+    }
   ],
   "completed": [
-
+    {
+      "id": "2",
+      "name": "Projeni bitir",
+      "status": "disabled",
+      "class": "active",
+      "timeleft": "Completed"
+    }
   ]
 }

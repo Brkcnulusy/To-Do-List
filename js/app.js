@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react"
 import { get, post, remove, put } from "./request.js";
 import {
   _setQuantity,
