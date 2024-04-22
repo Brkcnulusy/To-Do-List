@@ -12,9 +12,9 @@ import { validate, validationMessages } from "./validate.js";
 const Todo = (function () {
   // Variables
 
-  const TODO_LİST_URL = `https://to-do-list-7d9a3-default-rtdb.firebaseio.com/todo/`;
-  const FAİLED_LİST_URL = `https://to-do-list-7d9a3-default-rtdb.firebaseio.com/failed/`;
-  const COMPLETED_LİST_URL = `https://to-do-list-7d9a3-default-rtdb.firebaseio.com/completed`;
+  const TODO_LİST_URL = `http://localhost:3000/todo/`;
+  const FAİLED_LİST_URL = `http://localhost:3000/failed/`;
+  const COMPLETED_LİST_URL = `http://localhost:3000/completed`;
 
   const themeButton = document.querySelector(".js-theme-button");
   const header = document.querySelector("header");
