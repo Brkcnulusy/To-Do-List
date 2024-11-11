@@ -1,49 +1,50 @@
-# Yapılacaklar Listesi
-- Bu bir To Do List yani Yapılacaklar Listesi web sitesidir. Ben bunu normal projeden biraz daha fazla geliştirdim. Yapılacak işlere tarih özelliği ekledim.Örneğin: yapılacak bir iş girdiniz sonra bir bitiş tarihi girmeniz gerekiyor. Sonra ben bu bitiş tarihini aldım milisaniyeye çevirdim ve sonra bugünün tarihini alıp onuda milisaniyeye çevirdim sonra bitiş tarihinden bugünün tarhini çıkarıp kalan süreyi buldum. Sonrasında kalan süreyi güne çevirip htmle ekledim. Tabiki sadece bunla kalmayıp birde bunlara geri sayım ekledim. Bu geri sayım dolana kadar kullanıcı yapacağı işi tamamlandı olarak işaretlemezse geri sayım bittiğinde yapılacak iş listeden silinip red zone' a yani Başarısız Listesine düşüyor ve üstü çiziliyor. Kullanıcılar bunu görebilsin diye sayacı 10 saniyeye ayarladım. Yani 10 saniyede 1 gün sayısı azalacak şekilde ayarladım. Bunun yanı sıra bir green zone yaptım. Burada ise tamamlandı olarak işaretlenen todolar gözüküyor. Tamamlanan işler hem ana listede hem green zone da görüntülenecek şekilde ayarlandı kullanıcı isterse ana listeden clear completed butonuna tıklayarak tamamlananları silebilir fakat green zone dan silemez. Yapılacak işlerin altında 2 tane filitreleme butonu mevcuttur. All butonu bütün todoları gösterirken Active butonu tamamlanmayan todoları listeler. Completed butonu ise seçilen todoyu tamamlandı olarak işaretler fakat tamamlandı olarak işaretlenen todolar bir daha değiştirelemez. Ayrıca yapılacak işlerin üzerine geldiğinizde sağda silme butonu gözükür bu butona tıkladığınızda yapılacak olan iş silinir ve red zone da iptal edildi olarak işaretlenir. Tema değiştirme butonu mevcuttur kullanıcı isterse aydınlık modda yada karanlık modda kullanabilir.
-**Not: Bu projeyi test etmek veya üzerinde işlem yapmak için /api' içinde bulunan db.json dosyasını localde ayağa kaldırmanız gerekmektedir.**
+# To-Do List
+- This is a To Do List website. I developed it a little more than the normal project. I added a date feature to the jobs to be done. For example: you entered a job to be done and then you need to enter an end date. Then I took this end date and converted it to milliseconds and then I took today's date and converted it to milliseconds, then I subtracted today's date from the end date and found the remaining time. Then I converted the remaining time to days and added it to the htm. Of course, not only that, but I also added a countdown to them. If the user does not mark the work to be done as completed until this countdown is over, when the countdown is over, the work to be done is deleted from the list and falls into the red zone, that is, the Fail List and is crossed out. I set the counter to 10 seconds so that users can see this. So I set it so that the number of days decreases by 1 day in 10 seconds. In addition to this, I made a green zone. Here, the todos marked as completed appear. Completed jobs are set to be displayed both in the main list and in the green zone. The user can delete the completed ones by clicking the clear completed button from the main list, but not from the green zone. There are 2 filtering buttons under the jobs to be done. All button shows all todos while Active button lists incomplete todos. Completed button marks the selected todo as completed but the todos marked as completed cannot be changed again. In addition, when you hover over the work to be done, the delete button appears on the right, when you click this button, the work to be done is deleted and the red zone is marked as canceled. There is a theme change button and the user can use it in light mode or dark mode.
 
-### Ekran Görüntüsü
+**Note: In order to test or operate on this project, you need to extract the db.json file in /api' locally.**
 
-![Ekran Görüntüsü](./assets/images/Ekran%20Alıntısı.png)
-![Ekran Görüntüsü](./assets/images/Ekran%20Alıntısı1.png)
-![Ekran Görüntüsü](./assets/images/Ekran%20Alıntısı2.png)
+### Screen Shot
+
+![Screen Shot](./assets/images/Ekran%20Alıntısı.png)
+![Screen Shot](./assets/images/Ekran%20Alıntısı1.png)
+![Screen Shot](./assets/images/Ekran%20Alıntısı2.png)
 
 ### Links
 
-- Site Url'i: [To-Do-List](https://to-do-list-new.vercel.app/)
+- Site Url: [To-Do-List](https://to-do-list-new.vercel.app/)
 
-### Meydan okuma
+### Challenge
 
-Kullanıcılar şunları yapabilmelidir:
+Users should be able to:
 
-- Cihazlarının ekran boyutuna bağlı olarak uygulama için en uygun düzeni görüntüleme
-- Sayfadaki tüm etkileşimli öğeler için fareyle üzerine gelme durumlarını görün
-- Listeye yeni yapılacaklar ekleyin
-- Yapılacakları tamamlandı olarak işaretleyin
-- Yapılacak işleri listeden silme
-- Tüm/aktif/tamamlanmış todolara göre filtreleme
-- Tamamlanan tüm yapılacakları temizleyin
-- Açık ve koyu modu değiştirme
-- Bonus\*\*: Listedeki öğeleri yeniden sıralamak için sürükleyip bırakın
+- Display the optimal layout for the app based on the screen size of their device
+- See hover states for all interactive elements on the page
+- Add new to-dos to the list
+- Mark to-dos as completed
+- Delete to-do items from the list
+- Filter by all/active/completed todos
+- Clear all completed to-dos
+- Switching light and dark mode
+- Bonus\*\*\*: Drag and drop to reorder items in the list
 
-### Genel Bakış
+### Overview
 
-- Javascript kodları ifee fonksiyonları içine yazılmıştır. Sonrada ekleme yada geliştirme yapacak kişiler dikkat etmelidir.
-- Responsive tasarımı mevcut olup farklı cihazlarda da görüntü bozulmamaktadır.
-- Css kodları scss şeklinde yazılmıştır. Ekleme yada geliştirme yapacak kişi style.scss dosyasını compile etmelidir.
-- Js ve CSS kodları modüler olarak yazılmıştır.
+- Javascript codes are written in ifee functions. People who will add or develop later should pay attention.
+- Responsive design is available and the image does not deteriorate on different devices.
+- Css codes are written in scss. The person who will add or develop should compile the style.scss file.
+- Js and CSS codes are written modularly.
 
-### İle İnşa Edilmiştir
+### Built with
 
 - HTML5
 - CSS
 - Flexbox
 - SCSS
-- Mobil Tasarım
+- Mobile Design
 - JavaScript
 
-### Ne öğrendim
-Bu Bölümde bu projeyi oluştururken yeni öğrendiğim bazı bilgiler yer almakta. Öncelikle validate işlemini bu kadar düzenli ve kısaltarak kullanma yöntemini bilmiyordum araştırdım ve gördüm benim için çok kullanışlı oldu. Bir de drag and drop işlemini gördüm ve uygulamaya çalıştım yani öğeleri sürükle bırak işlemi. Şimdilik sadece  yukardaki öğeyi aşağıya sürüklemeyi başardım, aşağıdaki öğeler yukarı sürüklenmiyor ama diğer projelerde bu sorunu halledeceğimi düşünüyorum.
+### What I learned
+This section contains some new information that I learned while creating this project. First of all, I didn't know how to use the validate operation in such an organized and shortened way, I searched and saw it and it was very useful for me. I also saw the drag and drop operation and tried to apply it, that is, drag and drop items. For now, I only managed to drag the item above down, the items below are not dragged up, but I think I will solve this problem in other projects.
 
 ```html
  <li draggable="true" class="js-todo ${data.status}" data-id="${data.id}"><li>
@@ -93,10 +94,10 @@ const _drop = function (e) {
 };
 ```
 
-## Kurulum
+## Installation
 
-1. Projeyi Kopyalayın
-   İlk olarak, projeyi yerel bilgisayarınıza kopyalamk için GitHub'dan klonlayın:
+1. Copy the Project
+   First, clone the project from GitHub to copy it to your local computer:
 
 ```bash
 git clone https://github.com/Brkcnulusy/To-Do-List.git
@@ -104,20 +105,20 @@ cd To-Do-List
 
 ```
 
-2. Bağımlılıkları Yükleyin
-   Herhangi bir Bağlılığı bulunmamaktır. Projece vanilya.js ile yazılmıştır.
+2. Install Dependencies
+   It does not have any affiliation. The project is written in vanilla.js.
 
-3. Uygulamayı Çalıştırın
-   Eğer Live Server uzantısı yüklü ise html dosyasına sağ tıklayıp ilk seçenek olan Live Server ile Açın seçeneğine tıklayıp açabilirsiniz.
-   Live Server uzantısına sahip değilseniz terminale npm run dev yazarak ve Tarayıcınızda http://localhost:3000 adresine giderek uygulamayı kullanmaya başlayabilirsiniz.
+3. Run the Application
+   If you have the Live Server extension installed, you can open the html file by right clicking on it and selecting the first option Open with Live Server.
+   If you do not have the Live Server extension, you can start using the application by typing npm run dev in the terminal and going to http://localhost:3000 in your browser.
 
-## Yazar
+## Author
 
 - Website - [Burak Can Ulusoy](https://mavifloravakfi.com/)
 - LinkedIn - [@Brkcnulusy](https://www.linkedin.com/in/burak-can-ulusoy-375120272/)
 - GitHub - [@Burakcnulusy](https://github.com/Brkcnulusy/)
 - E-Mail - [brkcnulusy@gmail.com]
 
-## Teşekkür
+## Acknowledgements
 
-Bu projeyi frontend mentor adlı sitede gördüm ve yapmaya karar verdim. Site proje için gerekli olan tasarım resimleri ve sitede kullanmam gereken image dosyalarını benimle paylaştı. Frontend Mentor Ekibine teşekkür ederim.
+I saw this project on the site called frontend mentor and decided to do it. The site shared with me the design pictures required for the project and the image files I need to use on the site. Thank you to the Frontend Mentor Team.

@@ -27,8 +27,8 @@ const Todo = (function () {
   const completedTodoList = document.querySelector(".js-completed-todo-list");
   const clearButton = document.querySelector(".js-clear-button");
   const quantityItem = document.querySelector(".js-item-quantity");
-  const redZone = document.querySelector('.js-red-zone');
-  const greenZone = document.querySelector('.js-green-zone');
+  const redZone = document.querySelector(".js-red-zone");
+  const greenZone = document.querySelector(".js-green-zone");
   let draggedItem = null;
 
   // Event Listeners
@@ -46,9 +46,9 @@ const Todo = (function () {
       _openCloseRedZone(elementTarget);
       _openCloseGreenZone(elementTarget);
     });
-    todoList.addEventListener('dragstart', _dragStart);
-    todoList.addEventListener('dragover', _dragOver);
-    todoList.addEventListener('drop', _drop);
+    todoList.addEventListener("dragstart", _dragStart);
+    todoList.addEventListener("dragover", _dragOver);
+    todoList.addEventListener("drop", _drop);
   };
 
   // FunC
@@ -56,40 +56,40 @@ const Todo = (function () {
   const _dragStart = function (e) {
     draggedItem = e.target;
 
-    e.dataTransfer.setData('text/plain', draggedItem.textContent);
-  }
+    e.dataTransfer.setData("text/plain", draggedItem.textContent);
+  };
   const _dragOver = function (e) {
     e.preventDefault();
-  }
+  };
   const _drop = function (e) {
     e.preventDefault();
 
-    if(e.target.tagName === 'li') {
+    if (e.target.tagName === "li") {
       const droppedItem = e.target;
       todoList.insertBefore(draggedItem, droppedItem);
     } else {
       todoList.appendChild(draggedItem);
     }
-  }
+  };
 
   const _openCloseGreenZone = function (target) {
-    if(target.closest('.js-prev-button')) {
-      if(greenZone.classList == 'green-zone js-green-zone active') {
+    if (target.closest(".js-prev-button")) {
+      if (greenZone.classList == "green-zone js-green-zone active") {
         removeClass(greenZone);
       } else {
         addClass(greenZone);
       }
     }
-  }
+  };
   const _openCloseRedZone = function (target) {
-    if(target.closest('.js-next-button')) {
-      if(redZone.classList == 'red-zone js-red-zone active') {
+    if (target.closest(".js-next-button")) {
+      if (redZone.classList == "red-zone js-red-zone active") {
         removeClass(redZone);
       } else {
         addClass(redZone);
       }
     }
-  }
+  };
 
   const _removeTodo = function (target, todoURL, failURL) {
     if (target.closest(".js-remove-todo")) {
@@ -135,28 +135,40 @@ const Todo = (function () {
     const todayDate = new Date();
 
     const validationRules = [
-      { func: validate.checkEmpty, field: todoInputValue, message: validationMessages.emptyInput },
-      { func: validate.checkEmpty, field: dateInputValue, message: validationMessages.emptyInput },
-      { func: validate.checkPastDate, params: [enteredDate, todayDate], message: validationMessages.pastDate },
-  ];
-  
-  for (const rule of validationRules) {
+      {
+        func: validate.checkEmpty,
+        field: todoInputValue,
+        message: validationMessages.emptyInput,
+      },
+      {
+        func: validate.checkEmpty,
+        field: dateInputValue,
+        message: validationMessages.emptyInput,
+      },
+      {
+        func: validate.checkPastDate,
+        params: [enteredDate, todayDate],
+        message: validationMessages.pastDate,
+      },
+    ];
+
+    for (const rule of validationRules) {
       if (rule.func(...(rule.params || [rule.field]))) {
-          alert(rule.message);
-          return; // Doğrulama başarısız olduğunda işlemi sonlandır
+        alert(rule.message);
+        return; // Doğrulama başarısız olduğunda işlemi sonlandır
       }
-  }
-  
-  let timeLeft = _dayCalculation(enteredDate, todayDate);
-  let data = {
+    }
+
+    let timeLeft = _dayCalculation(enteredDate, todayDate);
+    let data = {
       id: "",
       name: todoInputValue,
       status: "",
       class: "",
       timeleft: timeLeft,
-  };
-  
-  postActions.addToDefault(TODO_LİST_URL, data);
+    };
+
+    postActions.addToDefault(TODO_LİST_URL, data);
   };
 
   const _dayCalculation = function (enteredDate, todayDate) {
@@ -295,11 +307,14 @@ const Todo = (function () {
   };
 
   const _getTodoList = function (url) {
-    get(url).then((datas) => {
+    get(url)
+    .then((datas) => {
       renderTodoList(todoList, datas);
+    })
+    .then(()=>{
       const quantity = todoList.querySelectorAll(".js-todo").length;
       _setQuantity(quantityItem, quantity);
-    });
+    })
   };
 
   const _deleteTodo = function (url, id) {

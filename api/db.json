@@ -1,8 +1,22 @@
 {
   "todo": [
     {
+      "id": 1,
+      "name": "asdfhgjfhga",
+      "status": "",
+      "class": "",
+      "timeleft": 0
+    },
+    {
       "id": 2,
-      "name": "Projeni bitir",
+      "name": "sasfdsgfh",
+      "status": "",
+      "class": "",
+      "timeleft": 9
+    },
+    {
+      "id": 3,
+      "name": "asfdhgjhkjha",
       "status": "disabled",
       "class": "active",
       "timeleft": "Completed"
@@ -15,12 +29,33 @@
       "status": "",
       "class": "",
       "timeleft": "Time Out"
+    },
+    {
+      "id": "2",
+      "name": "sadfsghjha",
+      "status": "",
+      "class": "",
+      "timeleft": "Canceled"
     }
   ],
   "completed": [
     {
       "id": "2",
       "name": "Projeni bitir",
+      "status": "disabled",
+      "class": "active",
+      "timeleft": "Completed"
+    },
+    {
+      "id": "1",
+      "name": "sadfgfhdgj",
+      "status": "disabled",
+      "class": "active",
+      "timeleft": "Completed"
+    },
+    {
+      "id": "3",
+      "name": "asfdhgjhkjha",
       "status": "disabled",
       "class": "active",
       "timeleft": "Completed"

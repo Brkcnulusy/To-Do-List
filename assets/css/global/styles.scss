@@ -50,10 +50,12 @@ html {
         border-bottom-right-radius: 5px;
         background-color: var(--List-Background-Color);
         cursor: pointer;
-        transition: 0.4s ease-in-out;
-
+        transition: transform 0.4s ease-in-out;
+        transform: translateX(-95%);
+        width: 400px;
+        
         &.active {
-            width: 385px;
+            width: 705px;
 
             @media (max-width: 500px) {
                 width: calc(100% - 60px);
@@ -65,13 +67,9 @@ html {
         }
 
         &:hover {
-            width: 385px;
-
+transform: translateX(0);
             @media (max-width: 500px) {
                 width: calc(100% - 60px);
-            }
-            >.red-zone-container>.content-wrapper {
-                display: flex;
             }
         }
 
@@ -104,9 +102,11 @@ html {
             }
 
             .content-wrapper {
+                
+
                 width: 100%;
                 height: 100%;
-                display: none;
+                display: flex;
                 flex-direction: column;
                 justify-content: space-around;
                 align-items: flex-start;

@@ -63,12 +63,10 @@ export const renderCompletedList = function (element, datas) {
 
 export const addClass = function (element) {
     element.classList.add('active');
-
 }
 
 export const removeClass = function (element) {
     element.classList.remove('active');
-
 }
 
 export const _setQuantity = function (element, quantity) {
